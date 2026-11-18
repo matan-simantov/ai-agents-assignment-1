@@ -54,6 +54,7 @@ def test_invalid_critic_output_is_technical_error_not_approval():
     assert log["final_status"] == TECHNICAL_ERROR
     assert log["attempts"][0]["evaluation"] == "not_completed"
     assert "is_acceptable" not in log["attempts"][0]
+    assert log["attempts"][0]["error_type"] == "invalid_evaluation"
 
 
 def test_llm_failure_is_technical_error():
@@ -90,3 +91,52 @@ def test_429_retries_are_bounded(monkeypatch):
     with pytest.raises(LLMCallError):
         llm.call_llm("some-model", [{"role": "user", "content": "hi"}])
     assert len(tries) == llm.MAX_RETRIES + 1
+
+
+def test_daily_quota_429_is_not_retried_and_model_is_skipped(monkeypatch):
+    import httpx
+    import llm
+    from openai import RateLimitError
+
+    tries = []
+    body = '{"error": {"code": 429, "details": [{"quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier"}]}}'
+
+    def daily_429(**kwargs):
+        tries.append(1)
+        resp = httpx.Response(429, text=body, request=httpx.Request("POST", "http://test"))
+        raise RateLimitError("quota", response=resp, body=None)
+
+    monkeypatch.setattr(llm.client.chat.completions, "create", daily_429)
+    monkeypatch.setattr(llm, "DAILY_QUOTA_EXHAUSTED", set())
+    with pytest.raises(LLMCallError) as err:
+        llm.call_llm("model-x", [{"role": "user", "content": "hi"}])
+    assert err.value.kind == "daily_quota"
+    assert len(tries) == 1                      # no retries on a daily quota
+    with pytest.raises(LLMCallError):
+        llm.call_llm("model-x", [{"role": "user", "content": "hi"}])
+    assert len(tries) == 1                      # the exhausted model is not called again
+
+
+def test_daily_quota_message_is_hebrew_and_logged():
+    def actor_out_of_quota(*args):
+        raise LLMCallError("429 daily", "daily_quota")
+
+    msg, log = answer_question("q", [], actor=actor_out_of_quota, critic=mock_critic_always_reject, mode="mock")
+    assert log["final_status"] == TECHNICAL_ERROR
+    assert log["attempts"][0]["error_type"] == "daily_quota"
+    assert "מכסת השימוש היומית" in msg
+
+
+def test_failed_answer_is_not_added_to_history(monkeypatch):
+    import app
+
+    def failing_loop(question, history, scenario_id="chat"):
+        return "שגיאה טכנית", {"final_status": TECHNICAL_ERROR, "attempts": [], "scenario_id": scenario_id,
+                               "question": question}
+
+    monkeypatch.setattr(app, "answer_question", failing_loop)
+    monkeypatch.setattr(app, "append_to_app_log", lambda entry: None)
+    old_history = [{"role": "user", "content": "q1"}, {"role": "assistant", "content": "approved answer"}]
+    _, display, _, history, _, _, _ = app.respond("q2", list(old_history), list(old_history), [])
+    assert history == old_history                      # the failed answer is NOT in the model history
+    assert display[-1]["content"] == "שגיאה טכנית"      # but the user does see the error message

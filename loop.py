@@ -14,7 +14,17 @@ TECHNICAL_ERROR = "technical_error"
 
 MSG_MAX_ATTEMPTS = ("Sorry, I could not produce an approved answer within the limit of "
                     f"{MAX_ATTEMPTS} attempts. Please try to rephrase the question.")
-MSG_TECH_ERROR = "Sorry, a technical error occurred and the question was not handled: {reason}"
+# technical error messages (Hebrew, shown in the chat). The exact reason is written to the log.
+MSG_TECH_ERROR = {
+    "daily_quota": "שגיאה טכנית: מכסת השימוש היומית החינמית של מודל השפה נוצלה, ולכן אין אפשרות לענות כרגע. "
+                   "המכסה מתאפסת פעם ביום (אפשר להגדיר מודל אחר ב-ACTOR_MODEL / CRITIC_MODEL).",
+    "rate_limit": "שגיאה טכנית: נשלחו יותר מדי בקשות למודל השפה בזמן קצר. נסה שוב בעוד דקה.",
+    "unavailable": "שגיאה טכנית: מודל השפה עמוס כרגע ולא הגיב. נסה שוב בעוד כמה רגעים.",
+    "timeout": "שגיאה טכנית: מודל השפה לא הגיב בזמן. נסה שוב בעוד כמה רגעים.",
+    "invalid_evaluation": "שגיאה טכנית: התשובה נוצרה אבל הבדיקה שלה לא הושלמה (פלט המעריך לא היה תקין), "
+                          "ולכן היא לא מוצגת. נסה לשאול שוב.",
+}
+MSG_TECH_ERROR_DEFAULT = "שגיאה טכנית בפנייה למודל השפה, והשאלה לא טופלה. נסה שוב מאוחר יותר."
 
 
 def now():
@@ -60,16 +70,19 @@ def answer_question(question, history, scenario_id="chat", actor=generate_answer
             record["candidate"] = None
             record["evaluation"] = "not_completed"
             record["error"] = f"actor call failed: {e}"
-            return finish(log, TECHNICAL_ERROR, MSG_TECH_ERROR.format(reason="the answer model call failed."))
+            record["error_type"] = e.kind
+            return finish(log, TECHNICAL_ERROR, MSG_TECH_ERROR.get(e.kind, MSG_TECH_ERROR_DEFAULT))
         record["candidate"] = candidate
 
         # 2. evaluate + validate with Pydantic
         try:
             evaluation = critic(question, candidate, history)
         except (LLMCallError, EvaluationError) as e:
+            kind = e.kind if isinstance(e, LLMCallError) else "invalid_evaluation"
             record["evaluation"] = "not_completed"   # no content decision was received
             record["error"] = f"critic failed: {e}"
-            return finish(log, TECHNICAL_ERROR, MSG_TECH_ERROR.format(reason="the answer could not be evaluated."))
+            record["error_type"] = kind
+            return finish(log, TECHNICAL_ERROR, MSG_TECH_ERROR.get(kind, MSG_TECH_ERROR_DEFAULT))
 
         record["evaluation"] = "completed"
         record["is_acceptable"] = evaluation.is_acceptable

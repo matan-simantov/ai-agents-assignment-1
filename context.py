@@ -12,8 +12,8 @@ LOGS_DIR = BASE_DIR / "logs"
 NAME = "Daniel Mor"  # sample (fictional) profile
 
 GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
-ACTOR_MODEL = os.getenv("ACTOR_MODEL") or "gemini-3.5-flash"
-CRITIC_MODEL = os.getenv("CRITIC_MODEL") or "gemini-3.5-flash"
+ACTOR_MODEL = os.getenv("ACTOR_MODEL") or "gemini-3.5-flash-lite"
+CRITIC_MODEL = os.getenv("CRITIC_MODEL") or "gemini-3.5-flash-lite"
 
 MAX_ATTEMPTS = 3  # generation attempts per question, including the first one
 

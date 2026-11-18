@@ -61,5 +61,127 @@
     "final_status": "approved",
     "shown_to_user": "אין לי מידע על ממוצע הציונים המדויק בפרופיל שלי. אני כן יכול לציין שסיימתי את התואר ב-B.Sc במדעי המחשב באוניברסיטת חיפה בשנת 2024, ובמהלכו גם עבדתי כמתרגל בקורס \"מבוא למדעי המחשב\".",
     "finished_at": "2026-11-18T12:05:48"
+  },
+  {
+    "scenario_id": "chat-1",
+    "mode": "llm",
+    "question": "איפה למדת?",
+    "started_at": "2026-11-18T12:22:23",
+    "actor_model": "gemini-3-flash-preview",
+    "critic_model": "gemini-3-flash-preview",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "למדתי באוניברסיטת חיפה, שם סיימתי תואר B.Sc במדעי המחשב בין השנים 2021 ל-2024. במהלך הלימודים גם עבדתי כמתרגל בקורס \"מבוא למדעי המחשב\" והדרכתי סטודנטים בשנה א'.",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The answer accurately reflects the educational background and teaching assistant role as described in the sources, uses the correct language, and maintains a professional tone."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "למדתי באוניברסיטת חיפה, שם סיימתי תואר B.Sc במדעי המחשב בין השנים 2021 ל-2024. במהלך הלימודים גם עבדתי כמתרגל בקורס \"מבוא למדעי המחשב\" והדרכתי סטודנטים בשנה א'.",
+    "finished_at": "2026-11-18T12:22:33"
+  },
+  {
+    "scenario_id": "chat-2",
+    "mode": "llm",
+    "question": "מתכון לעוגה?",
+    "started_at": "2026-11-18T12:22:45",
+    "actor_model": "gemini-3-flash-preview",
+    "critic_model": "gemini-3-flash-preview",
+    "attempts": [
+      {
+        "attempt": 1,
+        "candidate": null,
+        "evaluation": "not_completed",
+        "error": "actor call failed: rate limit / unavailable (429), gave up after 4 retries"
+      }
+    ],
+    "final_status": "technical_error",
+    "shown_to_user": "Sorry, a technical error occurred and the question was not handled: the answer model call failed.",
+    "finished_at": "2026-11-18T12:24:02"
+  },
+  {
+    "scenario_id": "chat-3",
+    "mode": "llm",
+    "question": "מי אתה",
+    "started_at": "2026-11-18T12:29:49",
+    "actor_model": "gemini-3-flash-preview",
+    "critic_model": "gemini-3-flash-preview",
+    "attempts": [
+      {
+        "attempt": 1,
+        "candidate": null,
+        "evaluation": "not_completed",
+        "error": "actor call failed: rate limit / unavailable (429), gave up after 4 retries"
+      }
+    ],
+    "final_status": "technical_error",
+    "shown_to_user": "Sorry, a technical error occurred and the question was not handled: the answer model call failed.",
+    "finished_at": "2026-11-18T12:31:06"
+  },
+  {
+    "scenario_id": "chat-1",
+    "mode": "llm",
+    "question": "מה הפרויקט האישי שלך?",
+    "started_at": "2026-11-18T12:38:00",
+    "actor_model": "gemini-3.5-flash-lite",
+    "critic_model": "gemini-3.5-flash-lite",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "הפרויקט האישי שלי הוא \"Recipe Bot\" (משנת 2025), בוט טלגרם שמציע מתכונים בהתאם למצרכים שיש למשתמש בבית. הוא בנוי באמצעות ה-API של OpenAI ומסד נתונים קטן של SQLite. בנוסף, פרויקט משמעותי נוסף שלי הוא פרויקט הגמר בתואר \"BusNow\", אפליקציית ווב שמנבאת עיכובי אוטובוסים בחיפה.",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The answer is acceptable because it accurately describes the Recipe Bot personal project and also correctly mentions the BusNow final project, all fully grounded in the provided background sources."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "הפרויקט האישי שלי הוא \"Recipe Bot\" (משנת 2025), בוט טלגרם שמציע מתכונים בהתאם למצרכים שיש למשתמש בבית. הוא בנוי באמצעות ה-API של OpenAI ומסד נתונים קטן של SQLite. בנוסף, פרויקט משמעותי נוסף שלי הוא פרויקט הגמר בתואר \"BusNow\", אפליקציית ווב שמנבאת עיכובי אוטובוסים בחיפה.",
+    "finished_at": "2026-11-18T12:38:02"
+  },
+  {
+    "scenario_id": "chat-2",
+    "mode": "llm",
+    "question": "באילו טכנולוגיות השתמשת בו?",
+    "started_at": "2026-11-18T12:38:04",
+    "actor_model": "gemini-3.5-flash-lite",
+    "critic_model": "gemini-3.5-flash-lite",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "בפרויקט האישי שלי (Recipe Bot) השתמשתי ב-OpenAI API ובמסד נתונים של SQLite. בפרויקט הגמר שלי, \"BusNow\", השתמשתי ב-Python, Flask ו-scikit-learn (מודל Random Forest) יחד עם נתוני תחבורה ציבורית (GTFS). אם תרצה לדעת על טכנולוגיות נוספות מניסיוני, אתה מוזמן לשאול!",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The answer correctly and accurately lists the technologies used in both the Recipe Bot and BusNow projects based on the provided background sources."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "בפרויקט האישי שלי (Recipe Bot) השתמשתי ב-OpenAI API ובמסד נתונים של SQLite. בפרויקט הגמר שלי, \"BusNow\", השתמשתי ב-Python, Flask ו-scikit-learn (מודל Random Forest) יחד עם נתוני תחבורה ציבורית (GTFS). אם תרצה לדעת על טכנולוגיות נוספות מניסיוני, אתה מוזמן לשאול!",
+    "finished_at": "2026-11-18T12:38:06"
+  },
+  {
+    "scenario_id": "chat-1",
+    "mode": "llm",
+    "question": "ספר לי כל מה שאתה יודע על הבן אדם",
+    "started_at": "2026-11-18T12:38:28",
+    "actor_model": "gemini-3.5-flash-lite",
+    "critic_model": "gemini-3.5-flash-lite",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "אני דניאל מור, בן 27 מחיפה, מפתח בק-אנד ג'וניור עם תואר במדעי המחשב מאוניברסיטת חיפה (2021–2024). יש לי ניסיון של כשנתיים בתחום (כולל משרת סטודנט), וכיום אני עובד כמפתח בק-אנד ב-Lumio Data בחיפה, שם אני מפתח ממשקי REST ב-Python (FastAPI), כותב תהליכי ETL, ועובד עם PostgreSQL, Docker ו-AWS. \n\nבצבא שירתי כטכנאי תקשורת מחשבים בצה\"ל (2017–2020), לשם חוויות התכנות הראשונות שלי. בזמני הפרויקטים הבולטים שלי כוללים את \"BusNow\" (פרויקט הגמר שלי לחיזוי עיכובי אוטובוסים) ואת \"Recipe Bot\" (בוט טלגרם אישי שמציע מתכונים באמצעות API של OpenAI). אני גם דובר עברית כשפת אם ואנגלית ברמה מקצועית מלאה, ומוסמך כ-AWS Certified Cloud Practitioner.",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The candidate answer accurately reflects Daniel Mor's background, education, and experience as provided in the source material, maintaining a professional first-person tone in Hebrew."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "אני דניאל מור, בן 27 מחיפה, מפתח בק-אנד ג'וניור עם תואר במדעי המחשב מאוניברסיטת חיפה (2021–2024). יש לי ניסיון של כשנתיים בתחום (כולל משרת סטודנט), וכיום אני עובד כמפתח בק-אנד ב-Lumio Data בחיפה, שם אני מפתח ממשקי REST ב-Python (FastAPI), כותב תהליכי ETL, ועובד עם PostgreSQL, Docker ו-AWS. \n\nבצבא שירתי כטכנאי תקשורת מחשבים בצה\"ל (2017–2020), לשם חוויות התכנות הראשונות שלי. בזמני הפרויקטים הבולטים שלי כוללים את \"BusNow\" (פרויקט הגמר שלי לחיזוי עיכובי אוטובוסים) ואת \"Recipe Bot\" (בוט טלגרם אישי שמציע מתכונים באמצעות API של OpenAI). אני גם דובר עברית כשפת אם ואנגלית ברמה מקצועית מלאה, ומוסמך כ-AWS Certified Cloud Practitioner.",
+    "finished_at": "2026-11-18T12:38:42"
   }
 ]

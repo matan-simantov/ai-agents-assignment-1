@@ -66,6 +66,7 @@ Return JSON only with these fields:
 - "feedback": a short reason. If you reject, name the exact problem (quote the unsupported claim or
   say what part is missing) and give a practical instruction how to fix it. Do not write general
   feedback like "the answer is not good".
+- The feedback must never be empty: if you accept, write one sentence that says why the answer is acceptable.
 """
 
 

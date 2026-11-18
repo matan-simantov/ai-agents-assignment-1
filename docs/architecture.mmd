@@ -6,9 +6,9 @@ flowchart TD
         SU["summary.txt"]
     end
 
-    UI -->|"question + history"| ACT["ACTOR (actor.py)<br/>System Prompt: role, style, grounding<br/>LLM: gemini-3.5-flash"]
+    UI -->|"question + history"| ACT["ACTOR (actor.py)<br/>System Prompt: role, style, grounding<br/>LLM: gemini-3.5-flash-lite (default)"]
     SRC --> ACT
-    ACT -->|"candidate answer"| CRI["CRITIC (critic.py)<br/>System Evaluator (criteria A-D)<br/>User Evaluator: question, answer, sources, history<br/>LLM: gemini-3.5-flash"]
+    ACT -->|"candidate answer"| CRI["CRITIC (critic.py)<br/>System Evaluator (criteria A-D)<br/>User Evaluator: question, answer, sources, history<br/>LLM: gemini-3.5-flash-lite (default)"]
     SRC --> CRI
 
     CRI -->|"raw JSON"| VAL{"Pydantic: Evaluation<br/>is_acceptable: bool<br/>feedback: str"}
