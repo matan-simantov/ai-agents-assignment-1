@@ -1,0 +1,24 @@
+*** SAMPLE PROFILE - FICTIONAL PERSON, CREATED FOR THE ASSIGNMENT ***
+
+Personal summary - Daniel Mor
+
+I'm Daniel, 27, from Haifa. I got into programming during my army service, where I worked
+as a communications technician and started writing small Bash and Python scripts to
+automate boring checks. After the army I studied Computer Science at the University of
+Haifa and finished my degree in 2024.
+
+During the degree I worked as a teaching assistant in the intro course, and I really enjoyed
+explaining code to other students. In my last year I started working part-time at Lumio Data,
+and after graduating I stayed there as a full-time backend developer. Most of my day is Python,
+SQL and APIs. The thing I'm most proud of at work is speeding up the nightly report job,
+because it was a real problem for the analysts every morning.
+
+My final project, BusNow, came from a personal annoyance: waiting for buses in Haifa without
+knowing if they will come. We used public GTFS data and trained a simple model to predict delays.
+
+In my free time I build small side projects (like a Telegram recipe bot), I run on the beach
+promenade a few times a week, and I play guitar badly. Right now I'm taking a course about AI
+agents because I want to move towards building LLM-based products.
+
+I'm looking for a backend or AI engineering role where I can keep learning from a strong team.
+I prefer hybrid work in the Haifa or Tel Aviv area.

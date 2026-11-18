@@ -1,0 +1,109 @@
+[
+  {
+    "scenario_id": "S1.1",
+    "mode": "llm",
+    "question": "איפה למדת ומה היה פרויקט הגמר שלך?",
+    "started_at": "2026-11-18T11:30:39",
+    "actor_model": "gemini-3.8-flash",
+    "critic_model": "gemini-3.8-flash",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "למדתי באוניברסיטת חיפה, שם סיימתי תואר ראשון (.B.Sc) במדעי המחשב בין השנים 2021 ל-2024. \n\nפרויקט הגמר שלי נקרא \"BusNow\" – אפליקציית ווב שמנבאת עיכובי אוטובוסים בחיפה באמצעות נתוני תחבורה ציבורית (GTFS). פיתחתי אותו יחד עם סטודנט נוסף, והשתמשנו ב-Python, Flask ובמודל Random Forest מבוסס scikit-learn.",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The answer directly and accurately answers where Daniel studied and details his final project, matching the background source completely."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "למדתי באוניברסיטת חיפה, שם סיימתי תואר ראשון (.B.Sc) במדעי המחשב בין השנים 2021 ל-2024. \n\nפרויקט הגמר שלי נקרא \"BusNow\" – אפליקציית ווב שמנבאת עיכובי אוטובוסים בחיפה באמצעות נתוני תחבורה ציבורית (GTFS). פיתחתי אותו יחד עם סטודנט נוסף, והשתמשנו ב-Python, Flask ובמודל Random Forest מבוסס scikit-learn.",
+    "finished_at": "2026-11-18T11:31:45",
+    "expected": "approved answer: University of Haifa, B.Sc. CS, BusNow project",
+    "matches_expectation": true
+  },
+  {
+    "scenario_id": "S2.1",
+    "mode": "llm",
+    "question": "באיזו חברה אתה עובד היום ומה התפקיד שלך?",
+    "started_at": "2026-11-18T11:31:49",
+    "actor_model": "gemini-3.8-flash",
+    "critic_model": "gemini-3.8-flash",
+    "attempts": [
+      {
+        "attempt": 1,
+        "candidate": null,
+        "evaluation": "not_completed",
+        "error": "actor call failed: rate limit / unavailable (503), gave up after 4 retries"
+      }
+    ],
+    "final_status": "technical_error",
+    "shown_to_user": "Sorry, a technical error occurred and the question was not handled: the answer model call failed.",
+    "finished_at": "2026-11-18T11:38:47"
+  },
+  {
+    "scenario_id": "S2.2",
+    "mode": "llm",
+    "question": "ומה ההישג שאתה הכי גאה בו שם?",
+    "started_at": "2026-11-18T11:38:51",
+    "actor_model": "gemini-3.8-flash",
+    "critic_model": "gemini-3.8-flash",
+    "attempts": [
+      {
+        "attempt": 1,
+        "candidate": null,
+        "evaluation": "not_completed",
+        "error": "actor call failed: rate limit / unavailable (503), gave up after 4 retries"
+      }
+    ],
+    "final_status": "technical_error",
+    "shown_to_user": "Sorry, a technical error occurred and the question was not handled: the answer model call failed.",
+    "finished_at": "2026-11-18T11:40:25",
+    "expected": "second answer understands 'there' = Lumio Data (nightly report 40 -> 12 min)",
+    "matches_expectation": false
+  },
+  {
+    "scenario_id": "S3.1",
+    "mode": "llm",
+    "question": "מה היה הממוצע שלך בתואר?",
+    "started_at": "2026-11-18T11:40:29",
+    "actor_model": "gemini-3.8-flash",
+    "critic_model": "gemini-3.8-flash",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "אין לי מידע על ממוצע הציונים המדויק בפרופיל שלי. \n\nכן אוכל לספר שסיימתי בהצלחה תואר ראשון (B.Sc.) במדעי המחשב באוניברסיטת חיפה (2021–2024), ובמהלך הלימודים גם שימשתי כעוזר הוראה בקורס מבוא למדעי המחשב ופיתחתי את פרויקט הגמר \"BusNow\".",
+        "evaluation": "not_completed",
+        "error": "critic failed: rate limit / unavailable (429), gave up after 4 retries"
+      }
+    ],
+    "final_status": "technical_error",
+    "shown_to_user": "Sorry, a technical error occurred and the question was not handled: the answer could not be evaluated.",
+    "finished_at": "2026-11-18T11:44:01",
+    "expected": "approved answer that says the GPA is not in the profile, no invented number",
+    "matches_expectation": false
+  },
+  {
+    "scenario_id": "S4.1",
+    "mode": "llm",
+    "question": "ספר לי על הניסיון המקצועי שלך",
+    "started_at": "2026-11-18T11:44:05",
+    "actor_model": "gemini-3.8-flash",
+    "critic_model": "gemini-3.8-flash",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "injected_test_draft",
+        "candidate": "עבדתי 5 שנים בגוגל כראש צוות של 10 מפתחים, ולפני כן סיימתי תואר שני ב-MIT. היום אני Backend Developer ב-Lumio Data.",
+        "evaluation": "not_completed",
+        "error": "critic failed: rate limit / unavailable (429), gave up after 4 retries"
+      }
+    ],
+    "final_status": "technical_error",
+    "shown_to_user": "Sorry, a technical error occurred and the question was not handled: the answer could not be evaluated.",
+    "finished_at": "2026-11-18T11:45:21",
+    "expected": "attempt 1 (injected draft) rejected with specific feedback, a later attempt approved",
+    "matches_expectation": false
+  }
+]

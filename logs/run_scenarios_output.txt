@@ -1,0 +1,52 @@
+=== Scenario 1: question about existing info (LLM) ===
+
+[S1.1] Q: איפה למדת ומה היה פרויקט הגמר שלך?
+  status: approved after 1 attempt(s)
+  shown: למדתי באוניברסיטת חיפה והשלמתי תואר ראשון (.B.Sc) במדעי המחשב בשנים 2021–2024. 
+
+פרויקט הגמר שלי נקרא **BusNow** – אפליקציית ווב שחוזה עיכובים של אוטובוסים בחיפה על סמך נתוני תחבורה ציבורית (GTFS). פיתחתי אותו בצוות של שני סטודנטים באמצעות Python, Flask ו-scikit-learn (מודל מסוג Random Forest).
+  ==> S1: MATCHES expectation
+
+=== Scenario 2: follow-up question (LLM) ===
+
+[S2.1] Q: באיזו חברה אתה עובד היום ומה התפקיד שלך?
+  status: approved after 1 attempt(s)
+  shown: היום אני עובד בחברת Lumio Data בחיפה בתפקיד Backend Developer (במשרה מלאה מאז אוגוסט 2024, לאחר שעבדתי שם כסטודנט). 
+
+בתפקיד שלי אני מפתח בעיקר REST APIs ב-Python (עם FastAPI) עבור פלטפורמת אנליטיקה פנימית, כותב תהליכי ETL לעיבוד נתונים, ועובד עם PostgreSQL, Docker ו-AWS.
+
+[S2.2] Q: ומה ההישג שאתה הכי גאה בו שם?
+  status: approved after 1 attempt(s)
+  shown: ההישג שאני הכי גאה בו בחברה הוא ייעול ה-job של דוח הלילה (nightly report). 
+
+הצלחתי לקצר את זמן הריצה שלו מ-40 דקות לכ-12 דקות בלבד על ידי שכתוב שאילתות SQL איטיות והוספת אינדקסים. זה היה סיפוק גדול כי הדוח הזה היה מטרד יומי אמיתי עבור צוות האנליסטים בכל בוקר.
+  ==> S2: MATCHES expectation
+
+=== Scenario 3: detail that is not in the sources (LLM) ===
+
+[S3.1] Q: מה היה הממוצע שלך בתואר?
+  status: approved after 1 attempt(s)
+  shown: אין לי מידע על ממוצע הציונים המדויק בפרופיל שלי. מה שכן אוכל לספר זה שסיימתי בהצלחה תואר B.Sc. במדעי המחשב באוניברסיטת חיפה (בשנים 2021-2024), ובמהלכו גם שימשתי כמתרגל בקורס "מבוא למדעי המחשב". 
+
+אם יש לך שאלות נוספות על פרויקט הסיום שלי או על קורסים ונושאים שלמדתי, אשמח לענות!
+  ==> S3: MATCHES expectation
+
+=== Scenario 4: rejection and improvement (injected bad draft, then LLM) ===
+
+[S4.1] Q: ספר לי על הניסיון המקצועי שלך
+  status: approved after 2 attempt(s)
+  shown: כיום אני עובד כ-Backend Developer בחברת Lumio Data בחיפה, שם אני מפתח REST APIs ב-Python (FastAPI), בונה תהליכי ETL ומשפר ביצועי שאילתות ב-PostgreSQL לצד עבודה עם AWS ו-Docker. התחלתי את דרכי בחברה כ-Student Developer במהלך שנת הלימודים האחרונה שלי. בנוסף, במהלך התואר עבדתי כמתרגל בקורס "מבוא למדעי המחשב" באוניברסיטת חיפה, ואת שירותי הצבאי עשיתי כטכנאי תקשורת נתונים בצה"ל.
+  ==> S4: MATCHES expectation
+
+saved /Users/matans/Desktop/learning/סוכנים/ai-agents-assignment-1/logs/scenarios_llm.json
+
+$ ACTOR_MODEL=gemini-3-flash-preview python run_scenarios.py mock
+(scenario 5 re-run separately: the first run was interrupted, and the daily free-tier quota of gemini-3.5-flash was used up)
+
+=== Scenario 5: attempt limit - MOCK critic (control flow test) ===
+
+[S5.1] Q: אילו מיומנויות טכניות יש לך?
+  status: max_attempts_reached after 3 attempt(s)
+  shown: Sorry, I could not produce an approved answer within the limit of 3 attempts. Please try to rephrase the question.
+  ==> S5: MATCHES expectation
+saved /Users/matans/Desktop/learning/סוכנים/ai-agents-assignment-1/logs/scenario5_mock.json

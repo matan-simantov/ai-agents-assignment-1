@@ -1,0 +1,23 @@
+[
+  {
+    "scenario_id": "S5.1",
+    "mode": "mock_critic",
+    "question": "אילו מיומנויות טכניות יש לך?",
+    "started_at": "2026-11-18T11:59:28",
+    "actor_model": "gemini-3.5-flash",
+    "critic_model": "mock_critic_always_reject",
+    "attempts": [
+      {
+        "attempt": 1,
+        "candidate": null,
+        "evaluation": "not_completed",
+        "error": "actor call failed: rate limit / unavailable (429), gave up after 4 retries"
+      }
+    ],
+    "final_status": "technical_error",
+    "shown_to_user": "Sorry, a technical error occurred and the question was not handled: the answer model call failed.",
+    "finished_at": "2026-11-18T12:00:45",
+    "expected": "3 rejected attempts, stop after the third, limit message shown",
+    "matches_expectation": false
+  }
+]

@@ -1,0 +1,13 @@
+$ python run_scenarios.py mock   (scenario 5 re-run separately, the first run was interrupted)
+
+=== Scenario 5: attempt limit - MOCK critic (control flow test) ===
+[llm] got 503, waiting 5s and retrying (1/4)
+[llm] got 429, waiting 10s and retrying (2/4)
+[llm] got 429, waiting 20s and retrying (3/4)
+[llm] got 429, waiting 40s and retrying (4/4)
+
+[S5.1] Q: אילו מיומנויות טכניות יש לך?
+  status: technical_error after 1 attempt(s)
+  shown: Sorry, a technical error occurred and the question was not handled: the answer model call failed.
+  ==> S5: DOES NOT match expectation
+saved /Users/matans/Desktop/learning/סוכנים/ai-agents-assignment-1/logs/scenario5_mock.json

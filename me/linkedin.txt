@@ -1,0 +1,56 @@
+*** SAMPLE PROFILE - FICTIONAL PERSON, CREATED FOR THE ASSIGNMENT ***
+
+Daniel Mor
+Junior Backend Developer | B.Sc. Computer Science | Python, SQL, AWS
+Haifa, Israel
+
+About
+Junior backend developer with a CS degree and about two years of hands-on experience
+(including a student position). I like building small, reliable services and data tools.
+Currently learning how to build applications with LLMs and AI agents.
+
+Experience
+
+Backend Developer - Lumio Data (Haifa)
+Aug 2024 - Present
+- Develop REST APIs in Python (FastAPI) for an internal analytics platform.
+- Wrote ETL jobs that load daily sales data from CSV files into PostgreSQL.
+- Reduced the run time of the nightly report job from about 40 minutes to 12 minutes by
+  rewriting slow SQL queries and adding indexes.
+- Work with Docker and AWS (EC2, S3, Lambda). Code reviews in GitHub.
+
+Student Developer (part-time) - Lumio Data (Haifa)
+Oct 2023 - Jul 2024
+- Built internal scripts for data cleaning in Python and pandas.
+- Wrote unit tests with pytest for the billing module.
+
+Teaching Assistant - "Introduction to Computer Science" - University of Haifa
+Oct 2022 - Jun 2023
+- Ran weekly Python practice sessions for about 30 first-year students and checked homework.
+
+Education
+
+University of Haifa
+B.Sc. Computer Science, 2021 - 2024
+Final project: "BusNow" - a web app that predicts bus delays in Haifa using public
+transport (GTFS) data. Built with Python, Flask and scikit-learn (random forest model).
+Worked in a team of two students.
+
+Military service
+IDF, Computer Communications technician, 2017 - 2020
+
+Skills
+Python, SQL, PostgreSQL, FastAPI, Flask, pandas, scikit-learn, Docker, AWS (EC2, S3, Lambda),
+Git, Linux, pytest
+
+Projects
+- BusNow (final degree project) - bus delay prediction, see Education.
+- Recipe Bot (personal project, 2025) - a Telegram bot that suggests recipes from the
+  ingredients the user has, using the OpenAI API and a small SQLite database.
+
+Languages
+Hebrew - native
+English - full professional proficiency
+
+Certifications
+AWS Certified Cloud Practitioner (2024)

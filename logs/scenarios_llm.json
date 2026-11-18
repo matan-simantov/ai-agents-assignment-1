@@ -1,0 +1,123 @@
+[
+  {
+    "scenario_id": "S1.1",
+    "mode": "llm",
+    "question": "איפה למדת ומה היה פרויקט הגמר שלך?",
+    "started_at": "2026-11-18T11:47:07",
+    "actor_model": "gemini-3.5-flash",
+    "critic_model": "gemini-3.5-flash",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "למדתי באוניברסיטת חיפה והשלמתי תואר ראשון (.B.Sc) במדעי המחשב בשנים 2021–2024. \n\nפרויקט הגמר שלי נקרא **BusNow** – אפליקציית ווב שחוזה עיכובים של אוטובוסים בחיפה על סמך נתוני תחבורה ציבורית (GTFS). פיתחתי אותו בצוות של שני סטודנטים באמצעות Python, Flask ו-scikit-learn (מודל מסוג Random Forest).",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The candidate answer accurately addresses both parts of the user's question, fully grounded in the provided background sources, in the correct persona and language."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "למדתי באוניברסיטת חיפה והשלמתי תואר ראשון (.B.Sc) במדעי המחשב בשנים 2021–2024. \n\nפרויקט הגמר שלי נקרא **BusNow** – אפליקציית ווב שחוזה עיכובים של אוטובוסים בחיפה על סמך נתוני תחבורה ציבורית (GTFS). פיתחתי אותו בצוות של שני סטודנטים באמצעות Python, Flask ו-scikit-learn (מודל מסוג Random Forest).",
+    "finished_at": "2026-11-18T11:50:15",
+    "expected": "approved answer: University of Haifa, B.Sc. CS, BusNow project",
+    "matches_expectation": true
+  },
+  {
+    "scenario_id": "S2.1",
+    "mode": "llm",
+    "question": "באיזו חברה אתה עובד היום ומה התפקיד שלך?",
+    "started_at": "2026-11-18T11:50:19",
+    "actor_model": "gemini-3.5-flash",
+    "critic_model": "gemini-3.5-flash",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "היום אני עובד בחברת Lumio Data בחיפה בתפקיד Backend Developer (במשרה מלאה מאז אוגוסט 2024, לאחר שעבדתי שם כסטודנט). \n\nבתפקיד שלי אני מפתח בעיקר REST APIs ב-Python (עם FastAPI) עבור פלטפורמת אנליטיקה פנימית, כותב תהליכי ETL לעיבוד נתונים, ועובד עם PostgreSQL, Docker ו-AWS.",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The response is accurate, well-grounded in the provided background, answered in the first person in Hebrew, and directly answers the user's question."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "היום אני עובד בחברת Lumio Data בחיפה בתפקיד Backend Developer (במשרה מלאה מאז אוגוסט 2024, לאחר שעבדתי שם כסטודנט). \n\nבתפקיד שלי אני מפתח בעיקר REST APIs ב-Python (עם FastAPI) עבור פלטפורמת אנליטיקה פנימית, כותב תהליכי ETL לעיבוד נתונים, ועובד עם PostgreSQL, Docker ו-AWS.",
+    "finished_at": "2026-11-18T11:51:40"
+  },
+  {
+    "scenario_id": "S2.2",
+    "mode": "llm",
+    "question": "ומה ההישג שאתה הכי גאה בו שם?",
+    "started_at": "2026-11-18T11:51:44",
+    "actor_model": "gemini-3.5-flash",
+    "critic_model": "gemini-3.5-flash",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "ההישג שאני הכי גאה בו בחברה הוא ייעול ה-job של דוח הלילה (nightly report). \n\nהצלחתי לקצר את זמן הריצה שלו מ-40 דקות לכ-12 דקות בלבד על ידי שכתוב שאילתות SQL איטיות והוספת אינדקסים. זה היה סיפוק גדול כי הדוח הזה היה מטרד יומי אמיתי עבור צוות האנליסטים בכל בוקר.",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The answer is accurate, fully grounded in the provided background, directly answers the user's question in Hebrew, and maintains the proper tone and context."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "ההישג שאני הכי גאה בו בחברה הוא ייעול ה-job של דוח הלילה (nightly report). \n\nהצלחתי לקצר את זמן הריצה שלו מ-40 דקות לכ-12 דקות בלבד על ידי שכתוב שאילתות SQL איטיות והוספת אינדקסים. זה היה סיפוק גדול כי הדוח הזה היה מטרד יומי אמיתי עבור צוות האנליסטים בכל בוקר.",
+    "finished_at": "2026-11-18T11:54:00",
+    "expected": "second answer understands 'there' = Lumio Data (nightly report 40 -> 12 min)",
+    "matches_expectation": true
+  },
+  {
+    "scenario_id": "S3.1",
+    "mode": "llm",
+    "question": "מה היה הממוצע שלך בתואר?",
+    "started_at": "2026-11-18T11:54:04",
+    "actor_model": "gemini-3.5-flash",
+    "critic_model": "gemini-3.5-flash",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "אין לי מידע על ממוצע הציונים המדויק בפרופיל שלי. מה שכן אוכל לספר זה שסיימתי בהצלחה תואר B.Sc. במדעי המחשב באוניברסיטת חיפה (בשנים 2021-2024), ובמהלכו גם שימשתי כמתרגל בקורס \"מבוא למדעי המחשב\". \n\nאם יש לך שאלות נוספות על פרויקט הסיום שלי או על קורסים ונושאים שלמדתי, אשמח לענות!",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The answer correctly states that the degree GPA is not available in the background details, maintains Daniel's persona in Hebrew, and grounds all provided facts in the background source."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "אין לי מידע על ממוצע הציונים המדויק בפרופיל שלי. מה שכן אוכל לספר זה שסיימתי בהצלחה תואר B.Sc. במדעי המחשב באוניברסיטת חיפה (בשנים 2021-2024), ובמהלכו גם שימשתי כמתרגל בקורס \"מבוא למדעי המחשב\". \n\nאם יש לך שאלות נוספות על פרויקט הסיום שלי או על קורסים ונושאים שלמדתי, אשמח לענות!",
+    "finished_at": "2026-11-18T11:55:59",
+    "expected": "approved answer that says the GPA is not in the profile, no invented number",
+    "matches_expectation": true
+  },
+  {
+    "scenario_id": "S4.1",
+    "mode": "llm",
+    "question": "ספר לי על הניסיון המקצועי שלך",
+    "started_at": "2026-11-18T11:56:03",
+    "actor_model": "gemini-3.5-flash",
+    "critic_model": "gemini-3.5-flash",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "injected_test_draft",
+        "candidate": "עבדתי 5 שנים בגוגל כראש צוות של 10 מפתחים, ולפני כן סיימתי תואר שני ב-MIT. היום אני Backend Developer ב-Lumio Data.",
+        "evaluation": "completed",
+        "is_acceptable": false,
+        "feedback": "The response contains hallucinated claims about working at Google for 5 years as a team lead and finishing a Master's degree at MIT ('עבדתי 5 שנים בגוגל... סיימתי תואר שני ב-MIT'). Fix this by describing Daniel's actual experience from the background: Backend Developer and Student Developer at Lumio Data, TA at University of Haifa, and IDF communications technician."
+      },
+      {
+        "attempt": 2,
+        "source": "actor",
+        "candidate": "כיום אני עובד כ-Backend Developer בחברת Lumio Data בחיפה, שם אני מפתח REST APIs ב-Python (FastAPI), בונה תהליכי ETL ומשפר ביצועי שאילתות ב-PostgreSQL לצד עבודה עם AWS ו-Docker. התחלתי את דרכי בחברה כ-Student Developer במהלך שנת הלימודים האחרונה שלי. בנוסף, במהלך התואר עבדתי כמתרגל בקורס \"מבוא למדעי המחשב\" באוניברסיטת חיפה, ואת שירותי הצבאי עשיתי כטכנאי תקשורת נתונים בצה\"ל.",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The answer is accurate, fully grounded in the provided context, written in the first person in Hebrew, and directly answers the user's question about Daniel's professional experience."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "כיום אני עובד כ-Backend Developer בחברת Lumio Data בחיפה, שם אני מפתח REST APIs ב-Python (FastAPI), בונה תהליכי ETL ומשפר ביצועי שאילתות ב-PostgreSQL לצד עבודה עם AWS ו-Docker. התחלתי את דרכי בחברה כ-Student Developer במהלך שנת הלימודים האחרונה שלי. בנוסף, במהלך התואר עבדתי כמתרגל בקורס \"מבוא למדעי המחשב\" באוניברסיטת חיפה, ואת שירותי הצבאי עשיתי כטכנאי תקשורת נתונים בצה\"ל.",
+    "finished_at": "2026-11-18T11:58:01",
+    "expected": "attempt 1 (injected draft) rejected with specific feedback, a later attempt approved",
+    "matches_expectation": true
+  }
+]

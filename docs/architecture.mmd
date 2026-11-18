@@ -1,0 +1,32 @@
+flowchart TD
+    U(["User question"]) --> UI["Gradio chat UI (app.py)<br/>history = questions + approved answers<br/>attempt counter reset to 0"]
+
+    subgraph SRC["Background sources (me/)"]
+        LI["linkedin.txt"]
+        SU["summary.txt"]
+    end
+
+    UI -->|"question + history"| ACT["ACTOR (actor.py)<br/>System Prompt: role, style, grounding<br/>LLM: gemini-3.5-flash"]
+    SRC --> ACT
+    ACT -->|"candidate answer"| CRI["CRITIC (critic.py)<br/>System Evaluator (criteria A-D)<br/>User Evaluator: question, answer, sources, history<br/>LLM: gemini-3.5-flash"]
+    SRC --> CRI
+
+    CRI -->|"raw JSON"| VAL{"Pydantic: Evaluation<br/>is_acceptable: bool<br/>feedback: str"}
+    VAL -->|"valid"| DEC{"is_acceptable?"}
+    DEC -->|"False"| CNT{"attempt < 3?"}
+    CNT -->|"FEEDBACK LOOP:<br/>rejected answer + feedback"| ACT
+
+    DEC -->|"True"| OK["EXIT 1 - Approved<br/>answer shown in chat<br/>and added to history"]
+    CNT -->|"no (3 rejected)"| MAX["EXIT 2 - Attempt limit<br/>'no approved answer' message<br/>rejected drafts only in log"]
+    VAL -->|"invalid / missing field"| ERR["EXIT 3 - Technical error<br/>error message, evaluation<br/>marked 'not completed'"]
+    ACT -.->|"API error / 429 after retries"| ERR
+    CRI -.->|"API error / 429 after retries"| ERR
+
+    DEC -.->|"every attempt"| LOG[("Review log - logs/*.json<br/>attempt, candidate, decision,<br/>feedback, final status")]
+
+    style OK fill:#d4edda,stroke:#2e7d32
+    style MAX fill:#fff3cd,stroke:#b8860b
+    style ERR fill:#f8d7da,stroke:#c62828
+    style ACT fill:#e3f2fd,stroke:#1565c0
+    style CRI fill:#f3e5f5,stroke:#6a1b9a
+    linkStyle 8 stroke:#d32f2f,stroke-width:3px,color:#d32f2f

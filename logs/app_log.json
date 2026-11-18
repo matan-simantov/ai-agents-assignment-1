@@ -1,0 +1,65 @@
+[
+  {
+    "scenario_id": "chat-1",
+    "mode": "llm",
+    "question": "איפה למדת ומה היה פרויקט הגמר שלך?",
+    "started_at": "2026-11-18T12:05:04",
+    "actor_model": "gemini-3-flash-preview",
+    "critic_model": "gemini-3-flash-preview",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "למדתי לתואר .B.Sc במדעי המחשב באוניברסיטת חיפה (סיימתי בשנת 2024).\n\nפרויקט הגמר שלי נקרא \"BusNow\" – אפליקציית ווב שחוזה עיכובי אוטובוסים בחיפה על בסיס נתוני תחבורה ציבורית (GTFS). בניתי את הפרויקט יחד עם שותף נוסף, והשתמשנו ב-Python, Flask ומודל למידת מכונה של scikit-learn.",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The answer accurately reflects the information in the background sources regarding Daniel's education at the University of Haifa and the details of his 'BusNow' final project. It is written in Hebrew, matching the user's question, and maintains a professional first-person persona."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "למדתי לתואר .B.Sc במדעי המחשב באוניברסיטת חיפה (סיימתי בשנת 2024).\n\nפרויקט הגמר שלי נקרא \"BusNow\" – אפליקציית ווב שחוזה עיכובי אוטובוסים בחיפה על בסיס נתוני תחבורה ציבורית (GTFS). בניתי את הפרויקט יחד עם שותף נוסף, והשתמשנו ב-Python, Flask ומודל למידת מכונה של scikit-learn.",
+    "finished_at": "2026-11-18T12:05:33"
+  },
+  {
+    "scenario_id": "chat-2",
+    "mode": "llm",
+    "question": "באילו טכנולוגיות השתמשתם בו?",
+    "started_at": "2026-11-18T12:05:36",
+    "actor_model": "gemini-3-flash-preview",
+    "critic_model": "gemini-3-flash-preview",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "בפרויקט BusNow השתמשנו ב-Python וב-Flask כדי לבנות את אפליקציית הווב. בצד של הנתונים והחיזויים, השתמשנו בנתוני תחבורה ציבורית (GTFS) ובספריית scikit-learn כדי לאמן מודל מסוג Random Forest.",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The answer accurately lists the technologies used in the project as described in the background sources and correctly identifies the specific model used (Random Forest)."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "בפרויקט BusNow השתמשנו ב-Python וב-Flask כדי לבנות את אפליקציית הווב. בצד של הנתונים והחיזויים, השתמשנו בנתוני תחבורה ציבורית (GTFS) ובספריית scikit-learn כדי לאמן מודל מסוג Random Forest.",
+    "finished_at": "2026-11-18T12:05:40"
+  },
+  {
+    "scenario_id": "chat-3",
+    "mode": "llm",
+    "question": "מה היה הממוצע שלך בתואר?",
+    "started_at": "2026-11-18T12:05:43",
+    "actor_model": "gemini-3-flash-preview",
+    "critic_model": "gemini-3-flash-preview",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "אין לי מידע על ממוצע הציונים המדויק בפרופיל שלי. אני כן יכול לציין שסיימתי את התואר ב-B.Sc במדעי המחשב באוניברסיטת חיפה בשנת 2024, ובמהלכו גם עבדתי כמתרגל בקורס \"מבוא למדעי המחשב\".",
+        "evaluation": "completed",
+        "is_acceptable": true,
+        "feedback": "The answer correctly states that the GPA information is unavailable in the background and provides relevant context about Daniel's degree and TA role, which are supported by the sources."
+      }
+    ],
+    "final_status": "approved",
+    "shown_to_user": "אין לי מידע על ממוצע הציונים המדויק בפרופיל שלי. אני כן יכול לציין שסיימתי את התואר ב-B.Sc במדעי המחשב באוניברסיטת חיפה בשנת 2024, ובמהלכו גם עבדתי כמתרגל בקורס \"מבוא למדעי המחשב\".",
+    "finished_at": "2026-11-18T12:05:48"
+  }
+]

@@ -1,0 +1,66 @@
+=== Scenario 1: question about existing info (LLM) ===
+[llm] got 503, waiting 5s and retrying (1/4)
+[llm] got 503, waiting 10s and retrying (2/4)
+[llm] got 503, waiting 5s and retrying (1/4)
+
+[S1.1] Q: איפה למדת ומה היה פרויקט הגמר שלך?
+  status: approved after 1 attempt(s)
+  shown: למדתי באוניברסיטת חיפה, שם סיימתי תואר ראשון (.B.Sc) במדעי המחשב בין השנים 2021 ל-2024. 
+
+פרויקט הגמר שלי נקרא "BusNow" – אפליקציית ווב שמנבאת עיכובי אוטובוסים בחיפה באמצעות נתוני תחבורה ציבורית (GTFS). פיתחתי אותו יחד עם סטודנט נוסף, והשתמשנו ב-Python, Flask ובמודל Random Forest מבוסס scikit-learn.
+  ==> S1: MATCHES expectation
+
+=== Scenario 2: follow-up question (LLM) ===
+[llm] got 503, waiting 5s and retrying (1/4)
+[llm] got 503, waiting 10s and retrying (2/4)
+[llm] got 503, waiting 20s and retrying (3/4)
+[llm] got 503, waiting 40s and retrying (4/4)
+
+[S2.1] Q: באיזו חברה אתה עובד היום ומה התפקיד שלך?
+  status: technical_error after 1 attempt(s)
+  shown: Sorry, a technical error occurred and the question was not handled: the answer model call failed.
+[llm] got 503, waiting 5s and retrying (1/4)
+[llm] got 503, waiting 10s and retrying (2/4)
+[llm] got 503, waiting 20s and retrying (3/4)
+[llm] got 503, waiting 40s and retrying (4/4)
+
+[S2.2] Q: ומה ההישג שאתה הכי גאה בו שם?
+  status: technical_error after 1 attempt(s)
+  shown: Sorry, a technical error occurred and the question was not handled: the answer model call failed.
+  ==> S2: DOES NOT match expectation
+
+=== Scenario 3: detail that is not in the sources (LLM) ===
+[llm] got 503, waiting 5s and retrying (1/4)
+[llm] got 429, waiting 10s and retrying (2/4)
+[llm] got 429, waiting 20s and retrying (3/4)
+[llm] got 429, waiting 40s and retrying (4/4)
+
+[S3.1] Q: מה היה הממוצע שלך בתואר?
+  status: technical_error after 1 attempt(s)
+  shown: Sorry, a technical error occurred and the question was not handled: the answer could not be evaluated.
+  ==> S3: DOES NOT match expectation
+
+=== Scenario 4: rejection and improvement (injected bad draft, then LLM) ===
+[llm] got 429, waiting 5s and retrying (1/4)
+[llm] got 429, waiting 10s and retrying (2/4)
+[llm] got 429, waiting 20s and retrying (3/4)
+[llm] got 429, waiting 40s and retrying (4/4)
+
+[S4.1] Q: ספר לי על הניסיון המקצועי שלך
+  status: technical_error after 1 attempt(s)
+  shown: Sorry, a technical error occurred and the question was not handled: the answer could not be evaluated.
+  ==> S4: DOES NOT match expectation
+
+saved /Users/matans/Desktop/learning/סוכנים/ai-agents-assignment-1/logs/scenarios_llm.json
+
+=== Scenario 5: attempt limit - MOCK critic (control flow test) ===
+[llm] got 429, waiting 5s and retrying (1/4)
+[llm] got 429, waiting 10s and retrying (2/4)
+[llm] got 429, waiting 20s and retrying (3/4)
+[llm] got 429, waiting 40s and retrying (4/4)
+
+[S5.1] Q: אילו מיומנויות טכניות יש לך?
+  status: technical_error after 1 attempt(s)
+  shown: Sorry, a technical error occurred and the question was not handled: the answer model call failed.
+  ==> S5: DOES NOT match expectation
+saved /Users/matans/Desktop/learning/סוכנים/ai-agents-assignment-1/logs/scenario5_mock.json

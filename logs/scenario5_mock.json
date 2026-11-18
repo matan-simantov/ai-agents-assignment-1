@@ -1,0 +1,41 @@
+[
+  {
+    "scenario_id": "S5.1",
+    "mode": "mock_critic",
+    "question": "אילו מיומנויות טכניות יש לך?",
+    "started_at": "2026-11-18T12:01:15",
+    "actor_model": "gemini-3-flash-preview",
+    "critic_model": "mock_critic_always_reject",
+    "attempts": [
+      {
+        "attempt": 1,
+        "source": "actor",
+        "candidate": "יש לי ניסיון משמעותי בפיתוח Backend עם Python (כולל FastAPI ו-Flask) ועבודה עם מסדי נתונים כמו PostgreSQL ו-SQL. אני שולט בכלי DevOps ופיתוח כמו Docker, Git ולינוקס, ויש לי ניסיון בעבודה עם ענן ב-AWS (EC2, S3, Lambda), כולל הסמכת AWS Certified Cloud Practitioner. בנוסף, עבדתי עם ספריות כמו pandas ו-scikit-learn לניתוח נתונים, וכיום אני לומד ומפתח פתרונות המבוססים על LLMs וסוכני AI.",
+        "evaluation": "completed",
+        "is_acceptable": false,
+        "feedback": "[MOCK] Rejected on purpose to test the attempt limit (control flow test)."
+      },
+      {
+        "attempt": 2,
+        "source": "actor",
+        "candidate": "המומחיות העיקרית שלי היא בפיתוח Backend עם Python, כולל עבודה עם FastAPI ו-Flask. יש לי ניסיון רב ב-SQL (במיוחד PostgreSQL), עבודה עם כלי DevOps כמו Docker ו-Git, וניסיון בענן ב-AWS, שם אני מחזיק בהסמכת Cloud Practitioner. בנוסף, אני משתמש ב-pandas ו-scikit-learn לניתוח נתונים ובונה כיום פרויקטים המבוססים על LLMs וסוכני AI.",
+        "evaluation": "completed",
+        "is_acceptable": false,
+        "feedback": "[MOCK] Rejected on purpose to test the attempt limit (control flow test)."
+      },
+      {
+        "attempt": 3,
+        "source": "actor",
+        "candidate": "המומחיות העיקרית שלי היא בפיתוח Backend ב-Python, עם ניסיון רב ב-FastAPI, Flask ו-SQL (במיוחד PostgreSQL). אני עובד עם כלי ענן ו-DevOps כמו AWS (EC2, S3, Lambda), Docker ו-Git, ואני מחזיק בהסמכת AWS Certified Cloud Practitioner. בנוסף, יש לי ניסיון בספריות pandas ו-scikit-learn לניתוח נתונים, וכיום אני מתמקד בבניית אפליקציות מבוססות LLM וסוכני AI.",
+        "evaluation": "completed",
+        "is_acceptable": false,
+        "feedback": "[MOCK] Rejected on purpose to test the attempt limit (control flow test)."
+      }
+    ],
+    "final_status": "max_attempts_reached",
+    "shown_to_user": "Sorry, I could not produce an approved answer within the limit of 3 attempts. Please try to rephrase the question.",
+    "finished_at": "2026-11-18T12:01:25",
+    "expected": "3 rejected attempts, stop after the third, limit message shown",
+    "matches_expectation": true
+  }
+]
