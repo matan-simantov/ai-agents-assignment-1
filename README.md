@@ -2,6 +2,8 @@
 
 AI Systems course (Dr. Paul Avrahami), lecture 2, slides 19–21.
 
+**Student:** Matan Siman Tov, ID 206356172
+
 A Gradio chat that answers as a person, based on a LinkedIn profile and a personal summary.
 Every answer is written by an **Actor** (LLM), checked by a **Critic** (separate LLM call with its own
 prompt) that returns structured output validated with **Pydantic**, and if it is rejected the Actor
@@ -107,6 +109,8 @@ Outputs:
 | 5 | Mock critic (control flow test) | 3 rejections, stopped, limit message shown | yes |
 
 Screenshots are in `screenshots/`, the short report is `report.docx`.
+Screenshots 01–03 show the real chat session from `logs/app_log.json` (gemini-3-flash-preview). After a small
+fix to the review-log formatting they were re-rendered from that saved log in the same UI, without new API calls.
 
 ## How the loop works
 
