@@ -2,7 +2,7 @@
 
 AI Systems course (Dr. Paul Avrahami), lecture 2, slides 19–21.
 
-**Student:** Matan Siman Tov, ID 206356172
+**Student:** Matan Siman Tov
 
 A Gradio chat that answers as a person, based on a LinkedIn profile and a personal summary.
 Every answer is written by an **Actor** (LLM), checked by a **Critic** (separate LLM call with its own
